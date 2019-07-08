@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?Filter=(%3CFilter%3E%3CIntersects%3E%3CPropertyName%3ESHAPE%3C/PropertyName%3E%3Cgml:Point%3E%3Cgml:coordinates%3E408602.61,257535.31%3C/gml:coordinates%3E%3C/gml:Point%3E%3C/Intersects%3E%3C/Filter%3E)&REQUEST=GetFeature&SERVICE=WFS&SRSName=EPSG:27700&VERSION=2.0.0&propertyName=long_name,short_name&typeNames=ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin18.5.0 x86_64) ruby/2.4.2p198
+      Host:
+      - environment.data.gov.uk
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 09 Jul 2019 10:13:56 GMT
+      Content-Type:
+      - application/xml
+      Content-Length:
+      - '1607'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="utf-8" ?>
+        <wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ms="https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timeStamp="2019-07-09T10:13:56Z" numberMatched="unknown" numberReturned="1" xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?service=wfs%26version=2.0.0%26request=DescribeFeatureType">
+          <wfs:member>
+            <ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas gml:id="Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.23">
+              <ms:OBJECTID>23</ms:OBJECTID>
+              <ms:long_name>West Midlands</ms:long_name>
+              <ms:short_name>West Midlands</ms:short_name>
+              <ms:st_area_shape_>14543741870.84492</ms:st_area_shape_>
+              <ms:st_perimeter_shape_>1043376.795941756</ms:st_perimeter_shape_>
+            </ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas>
+          </wfs:member>
+        </wfs:FeatureCollection>
+    http_version: 
+  recorded_at: Tue, 09 Jul 2019 10:13:56 GMT
+recorded_with: VCR 4.0.0

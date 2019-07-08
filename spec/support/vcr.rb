@@ -14,10 +14,4 @@ VCR.configure do |c|
   SECONDS_IN_DAY = 24 * 60 * 60
 
   c.default_cassette_options = { re_record_interval: (14 * SECONDS_IN_DAY) }
-
-  # Strip out authorization info
-  c.filter_sensitive_data("Basic <API_KEY>") do |interaction|
-    auth = interaction.request.headers["Authorization"]
-    auth.first if auth.nil? || auth.empty?
-  end
 end

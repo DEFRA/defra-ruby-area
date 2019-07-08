@@ -29,6 +29,10 @@ Gem::Specification.new do |spec|
       "public gem pushes."
   end
 
+  # The response from the area WFS services is in XML so we need Nokogiri to
+  # parse it
+  spec.add_dependency "nokogiri", "~> 1.10"
+
   # Use rest-client for external requests, eg. to Companies House
   spec.add_dependency "rest-client", "~> 2.0"
 
