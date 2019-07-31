@@ -76,7 +76,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 01 Aug 2019 08:40:32 GMT
+      - Thu, 01 Aug 2019 10:07:06 GMT
       Content-Type:
       - application/xml
       Content-Length:
@@ -93,7 +93,7 @@ http_interactions:
       encoding: UTF-8
       string: |-
         <?xml version="1.0" encoding="utf-8" ?>
-        <wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ms="https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timeStamp="2019-08-01T08:40:32Z" numberMatched="unknown" numberReturned="1" xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?service=wfs%26version=2.0.0%26request=DescribeFeatureType">
+        <wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ms="https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timeStamp="2019-08-01T10:07:06Z" numberMatched="unknown" numberReturned="1" xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?service=wfs%26version=2.0.0%26request=DescribeFeatureType">
           <wfs:member>
             <ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas gml:id="Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.23">
               <ms:OBJECTID>23</ms:OBJECTID>
@@ -104,5 +104,5 @@ http_interactions:
           </wfs:member>
         </wfs:FeatureCollection>
     http_version: 
-  recorded_at: Thu, 01 Aug 2019 08:40:32 GMT
+  recorded_at: Thu, 01 Aug 2019 10:07:05 GMT
 recorded_with: VCR 4.0.0
