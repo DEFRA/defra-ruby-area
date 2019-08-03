@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.license       = "The Open Government Licence (OGL) Version 3"
   spec.homepage      = "https://github.com/DEFRA/defra-ruby-area"
   spec.summary       = "Defra ruby on rails EA administrative area lookup"
-  spec.description   = "Wrapper for the EA administrative area WFS GIS service, it returns the EA area for a given easting and northing"
+  spec.description   = "Use to query the EA's administrative boundary Web Feature Services for area names."
 
   spec.files = Dir["{bin,config,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   spec.test_files = Dir["spec/**/*"]
