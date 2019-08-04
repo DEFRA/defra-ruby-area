@@ -27,7 +27,11 @@ module DefraRuby
       def response_exe
         lambda do
           begin
-            response = RestClient::Request.execute(method: :get, url: url)
+            response = RestClient::Request.execute(
+              method: :get,
+              url: url,
+              timeout: DefraRuby::Area.configuration.timeout
+            )
             area = parse_xml(response)
             raise NoMatchError if area.nil? || area == ""
           rescue StandardError => e
