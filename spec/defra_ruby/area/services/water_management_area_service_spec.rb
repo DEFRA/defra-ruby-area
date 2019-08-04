@@ -57,6 +57,8 @@ module DefraRuby
           end
 
         end
+
+        include_examples "handle request errors"
       end
     end
   end
