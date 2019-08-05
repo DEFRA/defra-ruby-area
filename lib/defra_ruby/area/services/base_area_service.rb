@@ -71,7 +71,7 @@ module DefraRuby
       # phenomenon. This object has a set of properties associated with each
       # having a name, a type, and a value.
       def service
-        "SERVICE=WFS"
+        "WFS"
       end
 
       # Currently there are 3 versions of the WFS standard; 1.0, 1.1 and 2.0.
@@ -80,7 +80,7 @@ module DefraRuby
       # suppport multiple versions hence you need to state the version in the
       # request.
       def version
-        "VERSION=1.0.0"
+        "1.0.0"
       end
 
       # Used to tell the WFS what kind of request you are making. In the case
@@ -90,7 +90,7 @@ module DefraRuby
       #
       # https://docs.geoserver.org/latest/en/user/services/wfs/reference.html#getfeature
       def request
-        "REQUEST=GetFeature"
+        "GetFeature"
       end
 
       def type_name
