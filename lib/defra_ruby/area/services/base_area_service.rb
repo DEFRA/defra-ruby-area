@@ -44,7 +44,7 @@ module DefraRuby
       end
 
       def response_xml_path
-        implemented_in_subclass
+        "//wfs:FeatureCollection/gml:featureMember/ms:#{type_name}/ms:long_name"
       end
 
       def url
@@ -53,6 +53,10 @@ module DefraRuby
 
       def domain
         "https://environment.data.gov.uk"
+      end
+
+      def type_name
+        implemented_in_subclass
       end
 
       def implemented_in_subclass
