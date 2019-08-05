@@ -59,6 +59,21 @@ module DefraRuby
         implemented_in_subclass
       end
 
+      # There are generally 3 kinds of GIS services; WFS, WMS, and WCS.
+      #
+      # * WFS - allows features to be queried, updated, created, or deleted by the client
+      # * WMS - returns map images based on the request made
+      # * WCS - transfer "coverages", ie. objects covering a geographical area
+      #
+      # We are querying a 'feature' hence we request to use the WFS service.
+      #
+      # N.B. A feature is an Object that is an abstraction of a real world
+      # phenomenon. This object has a set of properties associated with each
+      # having a name, a type, and a value.
+      def service
+        "SERVICE=WFS"
+      end
+
       # Used to tell the WFS what function you wish it to perform. In the case
       # of `GetFeature` this means
       #
