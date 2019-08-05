@@ -59,6 +59,16 @@ module DefraRuby
         implemented_in_subclass
       end
 
+      # Used to tell the WFS what function you wish it to perform. In the case
+      # of `GetFeature` this means
+      #
+      #   Returns a selection of features from a data source including geometry and attribute values
+      #
+      # https://docs.geoserver.org/latest/en/user/services/wfs/reference.html#getfeature
+      def operation
+        "REQUEST=GetFeature"
+      end
+
       def type_name
         implemented_in_subclass
       end
