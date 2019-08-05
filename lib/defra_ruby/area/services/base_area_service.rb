@@ -43,12 +43,16 @@ module DefraRuby
         xml.xpath(response_xml_path).text
       end
 
+      def response_xml_path
+        implemented_in_subclass
+      end
+
       def url
         implemented_in_subclass
       end
 
-      def response_xml_path
-        implemented_in_subclass
+      def domain
+        "https://environment.data.gov.uk"
       end
 
       def implemented_in_subclass
