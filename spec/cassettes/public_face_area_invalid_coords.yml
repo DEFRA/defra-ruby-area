@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?Filter=(%3CFilter%3E%3CIntersects%3E%3CPropertyName%3ESHAPE%3C/PropertyName%3E%3Cgml:Point%3E%3Cgml:coordinates%3E301233.0,221592.0%3C/gml:coordinates%3E%3C/gml:Point%3E%3C/Intersects%3E%3C/Filter%3E)&REQUEST=GetFeature&SERVICE=WFS&SRSName=EPSG:27700&VERSION=2.0.0&propertyName=long_name,short_name&typeNames=ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas
+    uri: https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?Filter=(%3CFilter%3E%3CIntersects%3E%3CPropertyName%3ESHAPE%3C/PropertyName%3E%3Cgml:Point%3E%3Cgml:coordinates%3E301233.0,221592.0%3C/gml:coordinates%3E%3C/gml:Point%3E%3C/Intersects%3E%3C/Filter%3E)&REQUEST=GetFeature&SERVICE=WFS&SRSName=EPSG:27700&VERSION=1.0.0&propertyName=long_name&typeName=ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas
     body:
       encoding: US-ASCII
       string: ''
@@ -12,7 +12,7 @@ http_interactions:
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
-      - rest-client/2.0.2 (darwin18.2.0 x86_64) ruby/2.4.2p198
+      - rest-client/2.0.2 (darwin18.5.0 x86_64) ruby/2.4.2p198
       Host:
       - environment.data.gov.uk
   response:
@@ -23,11 +23,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 31 Jul 2019 19:06:40 GMT
+      - Mon, 05 Aug 2019 16:31:58 GMT
       Content-Type:
       - application/xml
       Content-Length:
-      - '1024'
+      - '1070'
       Connection:
       - keep-alive
       Cache-Control:
@@ -40,8 +40,13 @@ http_interactions:
       encoding: UTF-8
       string: |-
         <?xml version="1.0" encoding="utf-8" ?>
-        <wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:ms="https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" timeStamp="2019-07-31T19:06:40Z" numberMatched="unknown" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?service=wfs%26version=2.0.0%26request=DescribeFeatureType">
+        <wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:ms="https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.0.0/WFS-basic.xsd http://www.opengis.net/gml http://schemas.opengis.net/gml/2.1.2/feature.xsd https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?service=wfs%26version=1.0.0%26request=DescribeFeatureType">
+        <gml:boundedBy>
+          <gml:Box srsName="EPSG:27700">
+            <gml:coordinates>0,0,0,0</gml:coordinates>
+          </gml:Box>
+        </gml:boundedBy>
         </wfs:FeatureCollection>
     http_version: 
-  recorded_at: Wed, 31 Jul 2019 19:06:40 GMT
+  recorded_at: Mon, 05 Aug 2019 16:31:59 GMT
 recorded_with: VCR 4.0.0
