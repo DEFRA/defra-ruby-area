@@ -74,7 +74,8 @@ module DefraRuby
         "WFS"
       end
 
-      # Currently there are 3 versions of the WFS standard; 1.0, 1.1 and 2.0.
+      # Currently there are various versions of the WFS standard, for example
+      # 1.0, 1.1 and 2.0.
       #
       # The WFS's we are working with only support version 1.0. A WFS may
       # suppport multiple versions hence you need to state the version in the
