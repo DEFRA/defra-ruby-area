@@ -74,13 +74,13 @@ module DefraRuby
         "SERVICE=WFS"
       end
 
-      # Used to tell the WFS what function you wish it to perform. In the case
+      # Used to tell the WFS what kind of request you are making. In the case
       # of `GetFeature` this means
       #
-      #   Returns a selection of features from a data source including geometry and attribute values
+      #   Return a selection of features from a data source including geometry and attribute values
       #
       # https://docs.geoserver.org/latest/en/user/services/wfs/reference.html#getfeature
-      def operation
+      def request
         "REQUEST=GetFeature"
       end
 
