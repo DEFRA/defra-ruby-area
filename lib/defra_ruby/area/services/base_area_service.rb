@@ -55,6 +55,10 @@ module DefraRuby
         "https://environment.data.gov.uk"
       end
 
+      def dataset
+        implemented_in_subclass
+      end
+
       def type_name
         implemented_in_subclass
       end

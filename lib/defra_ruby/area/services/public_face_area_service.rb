@@ -9,13 +9,17 @@ module DefraRuby
 
       private
 
+      def dataset
+        "administrative-boundaries-environment-agency-and-natural-england-public-face-areas"
+      end
+
       def type_name
         "Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas"
       end
 
       def url
         # rubocop:disable Metrics/LineLength
-        "#{domain}/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=GetFeature&typeNames=ms:#{type_name}&propertyName=long_name&SRSName=EPSG:27700&Filter=(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
+        "#{domain}/spatialdata/#{dataset}/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=GetFeature&typeNames=ms:#{type_name}&propertyName=long_name&SRSName=EPSG:27700&Filter=(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
         # rubocop:enable Metrics/LineLength
       end
 
