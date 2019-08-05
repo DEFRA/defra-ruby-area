@@ -19,7 +19,7 @@ module DefraRuby
 
       def url
         # rubocop:disable Metrics/LineLength
-        "#{domain}/spatialdata/#{dataset}/wfs?#{service}&VERSION=1.0.0&#{request}&typeNames=ms:#{type_name}&propertyName=long_name&SRSName=EPSG:27700&Filter=(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
+        "#{domain}/spatialdata/#{dataset}/wfs?#{service}&#{version}&#{request}&typeNames=ms:#{type_name}&propertyName=long_name&SRSName=EPSG:27700&Filter=(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
         # rubocop:enable Metrics/LineLength
       end
 
