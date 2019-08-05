@@ -94,6 +94,24 @@ module DefraRuby
         "GetFeature"
       end
 
+      # SRS stands for Spatial Reference System. It can also be known as a
+      # Coordinate Reference System (CRS). It is a coordinate-based local,
+      # regional or global system used to locate geographical entities.
+      # A spatial reference system defines a specific map projection, as well as
+      # transformations between different spatial reference systems.
+      #
+      # The SRSName paramater tells the WFS which SRS definition to use. The
+      # value is an EPSG (European Petroleum Survey Group) code. You can find a
+      # list of them at https://spatialreference.org/ref/epsg/
+      #
+      # EPSG:27700 refers to OSGB 1936 - British National Grid
+      # (https://spatialreference.org/ref/epsg/27700/)
+      #
+      # For more info on SRS read https://en.wikipedia.org/wiki/Spatial_reference_system
+      def srs_name
+        "EPSG:27700"
+      end
+
       def type_name
         implemented_in_subclass
       end
