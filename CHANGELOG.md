@@ -1,5 +1,24 @@
 # Change Log
 
+## [v0.2.1](https://github.com/DEFRA/defra-ruby-area/tree/v0.2.1) (2019-08-06)
+[Full Changelog](https://github.com/DEFRA/defra-ruby-area/compare/v0.2.0...v0.2.1)
+
+**Fixed bugs:**
+
+- Resolve hakiri security warning for nokogiri [\#3](https://github.com/DEFRA/defra-ruby-area/pull/3) ([Cruikshanks](https://github.com/Cruikshanks))
+
+**Merged pull requests:**
+
+- Breakdown url\(\) in services for readability [\#5](https://github.com/DEFRA/defra-ruby-area/pull/5) ([Cruikshanks](https://github.com/Cruikshanks))
+- Remove unnecessary rescue in base\_service [\#4](https://github.com/DEFRA/defra-ruby-area/pull/4) ([Cruikshanks](https://github.com/Cruikshanks))
+
+## [v0.2.0](https://github.com/DEFRA/defra-ruby-area/tree/v0.2.0) (2019-08-05)
+[Full Changelog](https://github.com/DEFRA/defra-ruby-area/compare/v0.1.0...v0.2.0)
+
+**Implemented enhancements:**
+
+- Add timeout configuration option [\#2](https://github.com/DEFRA/defra-ruby-area/pull/2) ([Cruikshanks](https://github.com/Cruikshanks))
+
 ## [v0.1.0](https://github.com/DEFRA/defra-ruby-area/tree/v0.1.0) (2019-08-03)
 **Implemented enhancements:**
 
