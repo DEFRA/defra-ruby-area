@@ -47,14 +47,20 @@ module DefraRuby
         xml.xpath(response_xml_path).text
       end
 
+      # XML path to the value we wish to extract in the WFS query response.
       def response_xml_path
         "//wfs:FeatureCollection/gml:featureMember/#{type_name}/ms:long_name"
       end
 
+      # Domain where the WFS is hosted
       def domain
         "https://environment.data.gov.uk"
       end
 
+      # Name of the Environment Agency dataset we are querying.
+      #
+      # Not actually a part of the WFS interface or spec. This is simply how
+      # we route through to the right 'dataset' (how the EA terms it).
       def dataset
         implemented_in_subclass
       end
@@ -106,6 +112,10 @@ module DefraRuby
         "GetFeature"
       end
 
+      # Name of the feature we wish to query.
+      #
+      # A WFS may host multiple features, so you need to specify which one you
+      # are querying in the url.
       def type_name
         implemented_in_subclass
       end
