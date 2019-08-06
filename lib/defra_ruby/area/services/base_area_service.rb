@@ -47,16 +47,8 @@ module DefraRuby
         "//wfs:FeatureCollection/gml:featureMember/ms:#{type_name}/ms:long_name"
       end
 
-      def url
-        implemented_in_subclass
-      end
-
       def domain
         "https://environment.data.gov.uk"
-      end
-
-      def dataset
-        implemented_in_subclass
       end
 
       # There are generally 3 kinds of GIS services; WFS, WMS, and WCS.
@@ -122,6 +114,16 @@ module DefraRuby
       # it to reduce the size of the response.
       def property_name
         "long_name"
+      end
+
+      def url
+        # rubocop:disable Metrics/LineLength
+        "#{domain}/spatialdata/#{dataset}/wfs?SERVICE=#{service}&VERSION=#{version}&REQUEST=#{request}&typeName=ms:#{type_name}&propertyName=#{property_name}&SRSName=#{srs_name}&Filter=(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
+        # rubocop:enable Metrics/LineLength
+      end
+
+      def dataset
+        implemented_in_subclass
       end
 
       def type_name
