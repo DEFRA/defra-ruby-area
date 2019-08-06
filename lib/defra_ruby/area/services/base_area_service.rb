@@ -143,7 +143,9 @@ module DefraRuby
       #
       # http://xml.fmi.fi/namespace/meteorology/conceptual-model/meteorological-objects/2009/04/28/docindex647.html
       def filter
+        # rubocop:disable Metrics/LineLength
         "(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
+        # rubocop:enable Metrics/LineLength
       end
 
       def dataset
