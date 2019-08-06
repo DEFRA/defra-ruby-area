@@ -151,9 +151,22 @@ module DefraRuby
       #
       # http://xml.fmi.fi/namespace/meteorology/conceptual-model/meteorological-objects/2009/04/28/docindex647.html
       def filter
-        # rubocop:disable Metrics/LineLength
-        "(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
-        # rubocop:enable Metrics/LineLength
+        # The filter is done in this way purely for readability. It could just
+        # as easily been a one line string statement, but we think this is
+        # better.
+        filter = <<-XML
+          (
+            <Filter>
+              <Intersects>
+                <PropertyName>SHAPE</PropertyName>
+                <gml:Point>
+                  <gml:coordinates>#{easting},#{northing}</gml:coordinates>
+                </gml:Point>
+              </Intersects>
+            </Filter>
+          )
+        XML
+        filter.strip.squeeze(" ").gsub(/\s+/, "")
       end
 
       def implemented_in_subclass
