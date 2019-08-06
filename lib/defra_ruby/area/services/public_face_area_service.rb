@@ -14,7 +14,7 @@ module DefraRuby
       end
 
       def type_name
-        "Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas"
+        "ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas"
       end
 
     end

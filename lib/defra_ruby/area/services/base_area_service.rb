@@ -50,7 +50,7 @@ module DefraRuby
       end
 
       def response_xml_path
-        "//wfs:FeatureCollection/gml:featureMember/ms:#{type_name}/ms:long_name"
+        "//wfs:FeatureCollection/gml:featureMember/#{type_name}/ms:long_name"
       end
 
       def domain
