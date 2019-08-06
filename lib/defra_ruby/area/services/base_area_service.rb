@@ -118,8 +118,32 @@ module DefraRuby
 
       def url
         # rubocop:disable Metrics/LineLength
-        "#{domain}/spatialdata/#{dataset}/wfs?SERVICE=#{service}&VERSION=#{version}&REQUEST=#{request}&typeName=ms:#{type_name}&propertyName=#{property_name}&SRSName=#{srs_name}&Filter=(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
+        "#{domain}/spatialdata/#{dataset}/wfs?SERVICE=#{service}&VERSION=#{version}&REQUEST=#{request}&typeName=ms:#{type_name}&propertyName=#{property_name}&SRSName=#{srs_name}&Filter=#{filter}"
         # rubocop:enable Metrics/LineLength
+      end
+
+      # WFS's use filters in GetFeature requests to return data that only
+      # matches a certain criteria.
+      #
+      # https://docs.geoserver.org/latest/en/user/filter/function.html
+      #
+      # There are various formats you can use for doing those, though it will be
+      # dependent on what the WFS supports. In our case we use XML-based Filter
+      # Encoding language because
+      #
+      # * this was how the team that manage the WFS have always provided their
+      #   examples
+      # * we know this format is supported by the WFS's we are interacting with
+      #
+      # The others are CQL and ECQL. https://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html
+      #
+      # Our filter is looking for the result where our coordinates intersect
+      # with the feature property +SHAPE+, with +SHAPE+ being a
+      # +MultiPolygonPropertyType+.
+      #
+      # http://xml.fmi.fi/namespace/meteorology/conceptual-model/meteorological-objects/2009/04/28/docindex647.html
+      def filter
+        "(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
       end
 
       def dataset
