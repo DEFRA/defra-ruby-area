@@ -110,6 +110,7 @@ As you can see it uses XML within query, and will return the result in XML.
 
 Checkout these additional resources we have found helpful in understanding how WFS's work.
 
+- [Web Feature Service](http://www.opengeospatial.org/standards/wfs)
 - [Communicating with a WFS service in a web browser](https://enterprise.arcgis.com/en/server/latest/publish-services/windows/communicating-with-a-wfs-service-in-a-web-browser.htm)
 - [Introduction to Web Feature Service](https://geoserver.geo-solutions.it/edu/en/vector_data/wfsintro.html)
 - [WFS reference](https://docs.geoserver.org/latest/en/user/services/wfs/reference.html)
