@@ -39,9 +39,7 @@ module DefraRuby
       end
 
       def url
-        # rubocop:disable Metrics/LineLength
-        "#{domain}/spatialdata/#{dataset}/wfs?SERVICE=#{service}&VERSION=#{version}&REQUEST=#{request}&typeName=ms:#{type_name}&propertyName=#{property_name}&SRSName=#{srs_name}&Filter=#{filter}"
-        # rubocop:enable Metrics/LineLength
+        "#{domain}/spatialdata/#{dataset}/wfs?#{url_params}"
       end
 
       def parse_xml(response)
@@ -59,6 +57,18 @@ module DefraRuby
 
       def dataset
         implemented_in_subclass
+      end
+
+      def url_params
+        {
+          "SERVICE" => service,
+          "VERSION" => version,
+          "REQUEST" => request,
+          "typeName" => type_name,
+          "propertyName" => property_name,
+          "SRSName" => srs_name,
+          "Filter" => filter
+        }.map { |k, v| "#{k}=#{v}" }.join("&")
       end
 
       # There are generally 3 kinds of GIS services; WFS, WMS, and WCS.

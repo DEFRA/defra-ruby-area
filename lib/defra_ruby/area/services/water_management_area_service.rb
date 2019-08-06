@@ -14,7 +14,7 @@ module DefraRuby
       end
 
       def type_name
-        "Administrative_Boundaries_Water_Management_Areas"
+        "ms:Administrative_Boundaries_Water_Management_Areas"
       end
 
     end
