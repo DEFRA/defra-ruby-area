@@ -112,6 +112,18 @@ module DefraRuby
         "EPSG:27700"
       end
 
+      # Specify which attribute of the feature we want to return. You can check
+      # the attributes of a feature by making +DescribeFeatureType+ request.
+      #
+      # https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=DescribeFeatureType
+      #
+      # In our case the administrative boundary features contain a number of
+      # properties, but we are only interested in +long_name+ hence we specify
+      # it to reduce the size of the response.
+      def property_name
+        "long_name"
+      end
+
       def type_name
         implemented_in_subclass
       end
