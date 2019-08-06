@@ -38,6 +38,12 @@ module DefraRuby
         end
       end
 
+      def url
+        # rubocop:disable Metrics/LineLength
+        "#{domain}/spatialdata/#{dataset}/wfs?SERVICE=#{service}&VERSION=#{version}&REQUEST=#{request}&typeName=ms:#{type_name}&propertyName=#{property_name}&SRSName=#{srs_name}&Filter=#{filter}"
+        # rubocop:enable Metrics/LineLength
+      end
+
       def parse_xml(response)
         xml = Nokogiri::XML(response)
         xml.xpath(response_xml_path).text
@@ -49,6 +55,10 @@ module DefraRuby
 
       def domain
         "https://environment.data.gov.uk"
+      end
+
+      def dataset
+        implemented_in_subclass
       end
 
       # There are generally 3 kinds of GIS services; WFS, WMS, and WCS.
@@ -86,6 +96,22 @@ module DefraRuby
         "GetFeature"
       end
 
+      def type_name
+        implemented_in_subclass
+      end
+
+      # Specify which attribute of the feature we want to return. You can check
+      # the attributes of a feature by making +DescribeFeatureType+ request.
+      #
+      # https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=DescribeFeatureType
+      #
+      # In our case the administrative boundary features contain a number of
+      # properties, but we are only interested in +long_name+ hence we specify
+      # it to reduce the size of the response.
+      def property_name
+        "long_name"
+      end
+
       # SRS stands for Spatial Reference System. It can also be known as a
       # Coordinate Reference System (CRS). It is a coordinate-based local,
       # regional or global system used to locate geographical entities.
@@ -102,24 +128,6 @@ module DefraRuby
       # For more info on SRS read https://en.wikipedia.org/wiki/Spatial_reference_system
       def srs_name
         "EPSG:27700"
-      end
-
-      # Specify which attribute of the feature we want to return. You can check
-      # the attributes of a feature by making +DescribeFeatureType+ request.
-      #
-      # https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=DescribeFeatureType
-      #
-      # In our case the administrative boundary features contain a number of
-      # properties, but we are only interested in +long_name+ hence we specify
-      # it to reduce the size of the response.
-      def property_name
-        "long_name"
-      end
-
-      def url
-        # rubocop:disable Metrics/LineLength
-        "#{domain}/spatialdata/#{dataset}/wfs?SERVICE=#{service}&VERSION=#{version}&REQUEST=#{request}&typeName=ms:#{type_name}&propertyName=#{property_name}&SRSName=#{srs_name}&Filter=#{filter}"
-        # rubocop:enable Metrics/LineLength
       end
 
       # WFS's use filters in GetFeature requests to return data that only
@@ -146,14 +154,6 @@ module DefraRuby
         # rubocop:disable Metrics/LineLength
         "(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>#{easting},#{northing}</gml:coordinates></gml:Point></Intersects></Filter>)"
         # rubocop:enable Metrics/LineLength
-      end
-
-      def dataset
-        implemented_in_subclass
-      end
-
-      def type_name
-        implemented_in_subclass
       end
 
       def implemented_in_subclass
