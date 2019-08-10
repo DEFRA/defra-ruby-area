@@ -40,7 +40,7 @@ response.error
 If the call is successful (the query did not error and a match was found) then
 
 - `successful?()` will be `true`
-- `area` will contain the long name of the matching administrative boundary
+- `area` will contain an instance of `DefraRuby::Area::Area`. It contains the code, short name and long name of the matching administrative boundary
 - `error` will be `nil`
 
 If the call is unsuccessful (the query errored or no match was found) then
@@ -49,9 +49,9 @@ If the call is unsuccessful (the query errored or no match was found) then
 - `area` will be `nil`
 - `error` will contain the error
 
-If its a runtime error, or an error when calling the WFS `error` will contain whatever error was raised.
+If it's a runtime error, or an error when calling the WFS `error` will contain whatever error was raised.
 
-If its because no match was found `error` will contain an instance of `DefraRuby::Area::NoMatchError`.
+If it's because no match was found `error` will contain an instance of `DefraRuby::Area::NoMatchError`.
 
 ### Environment Agency and Natural England Public Face Areas
 
@@ -62,7 +62,7 @@ easting = 408_602.61
 northing = 257_535.31
 response = DefraRuby::Area::PublicFaceAreaService.run(easting, northing)
 
-puts response.area if response.successful? # West Midlands
+puts response.area.long_name if response.successful? # West Midlands
 ```
 
 ### Water Management Areas
@@ -74,7 +74,7 @@ easting = 408_602.61
 northing = 257_535.31
 response = DefraRuby::Area::WaterManagementAreaService.run(easting, northing)
 
-puts response.area if response.successful? # Staffordshire Warwickshire and West Midlands
+puts response.area.long_name if response.successful? # Staffordshire Warwickshire and West Midlands
 ```
 
 ## Web Feature Services
