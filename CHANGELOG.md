@@ -1,5 +1,12 @@
 # Change Log
 
+## [v1.0.0](https://github.com/DEFRA/defra-ruby-area/tree/v1.0.0) (2019-08-10)
+[Full Changelog](https://github.com/DEFRA/defra-ruby-area/compare/v0.2.1...v1.0.0)
+
+**Implemented enhancements:**
+
+- Extract code and short name from WFS's [\#6](https://github.com/DEFRA/defra-ruby-area/pull/6) ([Cruikshanks](https://github.com/Cruikshanks))
+
 ## [v0.2.1](https://github.com/DEFRA/defra-ruby-area/tree/v0.2.1) (2019-08-06)
 [Full Changelog](https://github.com/DEFRA/defra-ruby-area/compare/v0.2.0...v0.2.1)
 
