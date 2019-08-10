@@ -3,6 +3,7 @@
 require_relative "area/configuration"
 require_relative "area/no_match_error"
 require_relative "area/response"
+require_relative "area/area"
 
 require_relative "area/services/base_area_service"
 require_relative "area/services/public_face_area_service"

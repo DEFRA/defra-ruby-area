@@ -18,7 +18,7 @@ module DefraRuby
             response = described_class.run(easting, northing)
             expect(response).to be_a(Response)
             expect(response.successful?).to eq(true)
-            expect(response.area).to eq("Staffordshire Warwickshire and West Midlands")
+            expect(response.area.long_name).to eq("Staffordshire Warwickshire and West Midlands")
           end
 
         end

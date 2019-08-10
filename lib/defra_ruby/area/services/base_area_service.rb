@@ -32,7 +32,7 @@ module DefraRuby
             timeout: DefraRuby::Area.configuration.timeout
           )
           area = parse_xml(response)
-          raise NoMatchError if area.nil? || area == ""
+          raise NoMatchError unless area.matched?
 
           { area: area }
         end
@@ -44,12 +44,16 @@ module DefraRuby
 
       def parse_xml(response)
         xml = Nokogiri::XML(response)
-        xml.xpath(response_xml_path).text
+        Area.new(
+          xml.xpath(response_xml_path(:code)).text,
+          xml.xpath(response_xml_path(:long_name)).text,
+          xml.xpath(response_xml_path(:short_name)).text
+        )
       end
 
       # XML path to the value we wish to extract in the WFS query response.
-      def response_xml_path
-        "//wfs:FeatureCollection/gml:featureMember/#{type_name}/ms:long_name"
+      def response_xml_path(property)
+        "//wfs:FeatureCollection/gml:featureMember/#{type_name}/ms:#{property}"
       end
 
       # Domain where the WFS is hosted
@@ -126,10 +130,10 @@ module DefraRuby
       # https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=DescribeFeatureType
       #
       # In our case the administrative boundary features contain a number of
-      # properties, but we are only interested in +long_name+ hence we specify
-      # it to reduce the size of the response.
+      # properties, but we are only interested in +code+, +long_name+ and
+      # +short_name+.
       def property_name
-        "long_name"
+        "code,long_name,short_name"
       end
 
       # SRS stands for Spatial Reference System. It can also be known as a
