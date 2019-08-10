@@ -6,7 +6,7 @@ module DefraRuby
   module Area
     RSpec.describe Response do
       subject(:response) { described_class.new(response_exe) }
-      let(:successful) { -> { { area: "Gallifrey" } } }
+      let(:successful) { -> { { area: Area.new("GFY", "Planet Gallifrey", "Gallifrey") } } }
       let(:errored) { -> { raise "Boom!" } }
 
       describe "#successful?" do
@@ -40,7 +40,8 @@ module DefraRuby
           let(:response_exe) { successful }
 
           it "returns an area" do
-            expect(response.area).to eq("Gallifrey")
+            expect(response.area).to be_instance_of(Area)
+            expect(response.area.short_name).to eq("Gallifrey")
           end
         end
       end
