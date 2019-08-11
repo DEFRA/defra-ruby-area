@@ -1,5 +1,17 @@
 # Change Log
 
+## [v1.1.0](https://github.com/DEFRA/defra-ruby-area/tree/v1.1.0) (2019-08-11)
+[Full Changelog](https://github.com/DEFRA/defra-ruby-area/compare/v1.0.0...v1.1.0)
+
+**Implemented enhancements:**
+
+- Add area name to WFS request and response [\#9](https://github.com/DEFRA/defra-ruby-area/pull/9) ([Cruikshanks](https://github.com/Cruikshanks))
+- Add area ID to WFS request [\#7](https://github.com/DEFRA/defra-ruby-area/pull/7) ([Cruikshanks](https://github.com/Cruikshanks))
+
+**Merged pull requests:**
+
+- Refactor Area to parse the WFS XML response [\#8](https://github.com/DEFRA/defra-ruby-area/pull/8) ([Cruikshanks](https://github.com/Cruikshanks))
+
 ## [v1.0.0](https://github.com/DEFRA/defra-ruby-area/tree/v1.0.0) (2019-08-10)
 [Full Changelog](https://github.com/DEFRA/defra-ruby-area/compare/v0.2.1...v1.0.0)
 
