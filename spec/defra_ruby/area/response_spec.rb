@@ -6,7 +6,11 @@ module DefraRuby
   module Area
     RSpec.describe Response do
       subject(:response) { described_class.new(response_exe) }
-      let(:successful) { -> { { area: Area.new(16, "GFY", "Planet Gallifrey", "Gallifrey") } } }
+
+      let(:valid_type_name) { "ms:Administrative_Boundaries_Water_Management_Areas" }
+      let(:valid_xml) { File.open("spec/fixtures/valid.xml") { |f| Nokogiri::XML(f) } }
+
+      let(:successful) { -> { { area: Area.new(valid_type_name, valid_xml) } } }
       let(:errored) { -> { raise "Boom!" } }
 
       describe "#successful?" do
@@ -18,7 +22,7 @@ module DefraRuby
           end
         end
 
-        context "when the response don't throw an error" do
+        context "when the response doesn't throw an error" do
           let(:response_exe) { successful }
 
           it "returns true" do
@@ -41,7 +45,7 @@ module DefraRuby
 
           it "returns an area" do
             expect(response.area).to be_instance_of(Area)
-            expect(response.area.short_name).to eq("Gallifrey")
+            expect(response.area.short_name).to eq("Staffs Warks and West Mids")
           end
         end
       end

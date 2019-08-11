@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "nokogiri"
 require "rest-client"
 
 module DefraRuby
@@ -31,7 +30,7 @@ module DefraRuby
             url: url,
             timeout: DefraRuby::Area.configuration.timeout
           )
-          area = parse_xml(response)
+          area = Area.new(type_name, Nokogiri::XML(response))
           raise NoMatchError unless area.matched?
 
           { area: area }
@@ -40,21 +39,6 @@ module DefraRuby
 
       def url
         "#{domain}/spatialdata/#{dataset}/wfs?#{url_params}"
-      end
-
-      def parse_xml(response)
-        xml = Nokogiri::XML(response)
-        Area.new(
-          xml.xpath(response_xml_path(:area_id)).text,
-          xml.xpath(response_xml_path(:code)).text,
-          xml.xpath(response_xml_path(:long_name)).text,
-          xml.xpath(response_xml_path(:short_name)).text
-        )
-      end
-
-      # XML path to the value we wish to extract in the WFS query response.
-      def response_xml_path(property)
-        "//wfs:FeatureCollection/gml:featureMember/#{type_name}/ms:#{property}"
       end
 
       # Domain where the WFS is hosted
