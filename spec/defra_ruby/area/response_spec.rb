@@ -6,7 +6,7 @@ module DefraRuby
   module Area
     RSpec.describe Response do
       subject(:response) { described_class.new(response_exe) }
-      let(:successful) { -> { { area: Area.new("GFY", "Planet Gallifrey", "Gallifrey") } } }
+      let(:successful) { -> { { area: Area.new(16, "GFY", "Planet Gallifrey", "Gallifrey") } } }
       let(:errored) { -> { raise "Boom!" } }
 
       describe "#successful?" do

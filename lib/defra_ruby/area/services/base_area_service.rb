@@ -45,6 +45,7 @@ module DefraRuby
       def parse_xml(response)
         xml = Nokogiri::XML(response)
         Area.new(
+          xml.xpath(response_xml_path(:area_id)).text,
           xml.xpath(response_xml_path(:code)).text,
           xml.xpath(response_xml_path(:long_name)).text,
           xml.xpath(response_xml_path(:short_name)).text
@@ -133,7 +134,7 @@ module DefraRuby
       # properties, but we are only interested in +code+, +long_name+ and
       # +short_name+.
       def property_name
-        "code,long_name,short_name"
+        "area_id,code,long_name,short_name"
       end
 
       # SRS stands for Spatial Reference System. It can also be known as a
