@@ -7,7 +7,7 @@
 [![Gem Version](https://badge.fury.io/rb/defra_ruby_area.svg)](https://badge.fury.io/rb/defra_ruby_area)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
-This ruby gem provides a means of looking up an Environment Agency Administrative boundary from a GIS Web Feature Service (WFS). Provided with a valid [easting and northing](https://en.wikipedia.org/wiki/Easting_and_northing) it will query the WFS and return the long name for the area if a match is found.
+This ruby gem provides a means of looking up an Environment Agency Administrative boundary area from a GIS Web Feature Service (WFS). Provided with a valid [easting and northing](https://en.wikipedia.org/wiki/Easting_and_northing) it will query the WFS and return the various properties for the area if a match is found.
 
 ## Installation
 
