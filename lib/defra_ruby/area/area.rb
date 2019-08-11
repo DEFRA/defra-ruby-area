@@ -22,8 +22,16 @@ module DefraRuby
       private
 
       def validate
+        validate_type_name
+        validate_xml
+      end
+
+      def validate_type_name
         raise(ArgumentError, "type_name is invalid") unless @type_name && @type_name != ""
-        raise(ArgumentError, "wfs_xml_response is invalid") unless @xml && @xml.is_a?(Nokogiri::XML::Document)
+      end
+
+      def validate_xml
+        raise(ArgumentError, "wfs_xml_response is invalid") unless @xml&.is_a?(Nokogiri::XML::Document)
       end
 
       def parse_xml
