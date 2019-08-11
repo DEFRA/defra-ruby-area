@@ -40,7 +40,7 @@ response.error
 If the call is successful (the query did not error and a match was found) then
 
 - `successful?()` will be `true`
-- `area` will contain an instance of `DefraRuby::Area::Area`. It contains the code, short name and long name of the matching administrative boundary
+- `area` will contain an instance of `DefraRuby::Area::Area`. It contains the area ID, code, short name and long name of the matching administrative boundary
 - `error` will be `nil`
 
 If the call is unsuccessful (the query errored or no match was found) then

@@ -7,7 +7,7 @@ module DefraRuby
     RSpec.describe Area do
       describe "#matched?" do
         context "when no attributes are populated" do
-          let(:subject) { described_class.new(nil, nil, nil) }
+          let(:subject) { described_class.new(nil, nil, nil, nil) }
 
           it "returns false" do
             expect(subject.matched?).to eq(false)
@@ -17,7 +17,7 @@ module DefraRuby
 
       describe "#matched?" do
         context "when at least one attribute is populated" do
-          let(:subject) { described_class.new("foo", nil, nil) }
+          let(:subject) { described_class.new(nil, "foo", nil, nil) }
 
           it "returns true" do
             expect(subject.matched?).to eq(true)
