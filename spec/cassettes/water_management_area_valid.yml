@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs?Filter=(%3CFilter%3E%3CIntersects%3E%3CPropertyName%3ESHAPE%3C/PropertyName%3E%3Cgml:Point%3E%3Cgml:coordinates%3E408602.61,257535.31%3C/gml:coordinates%3E%3C/gml:Point%3E%3C/Intersects%3E%3C/Filter%3E)&REQUEST=GetFeature&SERVICE=WFS&SRSName=EPSG:27700&VERSION=1.0.0&propertyName=area_id,code,long_name,short_name&typeName=ms:Administrative_Boundaries_Water_Management_Areas
+    uri: https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs?Filter=(%3CFilter%3E%3CIntersects%3E%3CPropertyName%3ESHAPE%3C/PropertyName%3E%3Cgml:Point%3E%3Cgml:coordinates%3E408602.61,257535.31%3C/gml:coordinates%3E%3C/gml:Point%3E%3C/Intersects%3E%3C/Filter%3E)&REQUEST=GetFeature&SERVICE=WFS&SRSName=EPSG:27700&VERSION=1.0.0&propertyName=area_id,area_name,code,long_name,short_name&typeName=ms:Administrative_Boundaries_Water_Management_Areas
     body:
       encoding: US-ASCII
       string: ''
@@ -23,11 +23,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 11 Aug 2019 09:41:21 GMT
+      - Sun, 11 Aug 2019 15:53:41 GMT
       Content-Type:
       - application/xml
       Content-Length:
-      - '1564'
+      - '1607'
       Connection:
       - keep-alive
       Cache-Control:
@@ -53,11 +53,12 @@ http_interactions:
               <ms:short_name>Staffs Warks and West Mids</ms:short_name>
               <ms:code>STWKWM</ms:code>
               <ms:area_id>29</ms:area_id>
+              <ms:area_name>Central</ms:area_name>
               <ms:st_area_shape_>6460280400.1</ms:st_area_shape_>
               <ms:st_perimeter_shape_>759189.708848595</ms:st_perimeter_shape_>
             </ms:Administrative_Boundaries_Water_Management_Areas>
           </gml:featureMember>
         </wfs:FeatureCollection>
     http_version: 
-  recorded_at: Sun, 11 Aug 2019 09:41:21 GMT
+  recorded_at: Sun, 11 Aug 2019 15:53:41 GMT
 recorded_with: VCR 4.0.0

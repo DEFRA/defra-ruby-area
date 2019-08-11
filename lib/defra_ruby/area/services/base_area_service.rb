@@ -115,10 +115,16 @@ module DefraRuby
       # https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=DescribeFeatureType
       #
       # In our case the administrative boundary features contain a number of
-      # properties, but we are only interested in +code+, +long_name+ and
-      # +short_name+.
+      # properties, but we are only interested in
+      #
+      # - +area_id+
+      # - +area_name+
+      # - +code+
+      # - +long_name+
+      # - +short_name+
+      #
       def property_name
-        "area_id,code,long_name,short_name"
+        "area_id,area_name,code,long_name,short_name"
       end
 
       # SRS stands for Spatial Reference System. It can also be known as a

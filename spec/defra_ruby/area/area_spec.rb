@@ -61,6 +61,7 @@ module DefraRuby
               subject = described_class.new(valid_type_name, valid_xml)
 
               expect(subject.area_id).to eq(29)
+              expect(subject.area_name).to eq("Central")
               expect(subject.code).to eq("STWKWM")
               expect(subject.short_name).to eq("Staffs Warks and West Mids")
               expect(subject.long_name).to eq("Staffordshire Warwickshire and West Midlands")
@@ -72,6 +73,7 @@ module DefraRuby
               subject = described_class.new(no_match_type_name, valid_xml)
 
               expect(subject.area_id).to eq(0)
+              expect(subject.area_name).to eq("")
               expect(subject.code).to eq("")
               expect(subject.short_name).to eq("")
               expect(subject.long_name).to eq("")
@@ -83,6 +85,7 @@ module DefraRuby
               subject = described_class.new(valid_type_name, no_match_xml)
 
               expect(subject.area_id).to eq(0)
+              expect(subject.area_name).to eq("")
               expect(subject.code).to eq("")
               expect(subject.short_name).to eq("")
               expect(subject.long_name).to eq("")
