@@ -12,6 +12,7 @@
       <ms:short_name>Staffs Warks and West Mids</ms:short_name>
       <ms:code>STWKWM</ms:code>
       <ms:area_id>29</ms:area_id>
+      <ms:area_name>Central</ms:area_name>
       <ms:st_area_shape_>6460280400.1</ms:st_area_shape_>
       <ms:st_perimeter_shape_>759189.708848595</ms:st_perimeter_shape_>
     </ms:Administrative_Boundaries_Water_Management_Areas>

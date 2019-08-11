@@ -5,7 +5,7 @@ require "nokogiri"
 module DefraRuby
   module Area
     class Area
-      attr_reader :area_id, :code, :long_name, :short_name
+      attr_reader :area_id, :area_name, :code, :long_name, :short_name
 
       def initialize(type_name, wfs_xml_response)
         @type_name = type_name
@@ -16,7 +16,7 @@ module DefraRuby
       end
 
       def matched?
-        "#{@code}#{@long_name}#{@short_name}" != ""
+        "#{@area_name}#{@code}#{@long_name}#{@short_name}" != ""
       end
 
       private
@@ -36,6 +36,7 @@ module DefraRuby
 
       def parse_xml
         @area_id = @xml.xpath(response_xml_path(:area_id)).text.to_i
+        @area_name = @xml.xpath(response_xml_path(:area_name)).text
         @code = @xml.xpath(response_xml_path(:code)).text
         @long_name = @xml.xpath(response_xml_path(:long_name)).text
         @short_name = @xml.xpath(response_xml_path(:short_name)).text
