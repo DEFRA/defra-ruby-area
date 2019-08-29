@@ -50,7 +50,7 @@ module DefraRuby
               response = described_class.run(easting, northing)
               expect(response).to be_a(Response)
               expect(response).to_not be_successful
-              expect(response.areas).to be_nil
+              expect(response.areas).to be_empty
               expect(response.error).to_not be_nil
             end
           end
@@ -66,7 +66,7 @@ module DefraRuby
               response = described_class.run(easting, northing)
               expect(response).to be_a(Response)
               expect(response).to_not be_successful
-              expect(response.areas).to be_nil
+              expect(response.areas).to be_empty
               expect(response.error).to_not be_nil
             end
           end

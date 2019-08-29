@@ -38,7 +38,7 @@ module DefraRuby
           let(:response_exe) { errored }
 
           it "returns nothing" do
-            expect(response.areas).to be_nil
+            expect(response.areas).to be_empty
           end
         end
 

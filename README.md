@@ -7,7 +7,7 @@
 [![Gem Version](https://badge.fury.io/rb/defra_ruby_area.svg)](https://badge.fury.io/rb/defra_ruby_area)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
-This ruby gem provides a means of looking up an Environment Agency Administrative boundary area from a GIS Web Feature Service (WFS). Provided with a valid [easting and northing](https://en.wikipedia.org/wiki/Easting_and_northing) it will query the WFS and return various properties for the matching area found.
+This ruby gem provides a means of looking up Environment Agency Administrative boundary areas from a GIS Web Feature Service (WFS). Provided with a valid [easting and northing](https://en.wikipedia.org/wiki/Easting_and_northing) it will query the WFS and return various properties for each matching area found.
 
 ## Installation
 
@@ -46,7 +46,7 @@ If the call is successful then
 If the call is unsuccessful (the query errored or no match was found) then
 
 - `successful?()` will be `false`
-- `areas` will be `nil`
+- `areas` will be `[]` (an empty array)
 - `error` will contain the error
 
 If it's a runtime error, or an error when calling the WFS `error` will contain whatever error was raised.
