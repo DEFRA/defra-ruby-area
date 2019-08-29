@@ -1,5 +1,16 @@
 # Change Log
 
+## [v2.0.0](https://github.com/DEFRA/defra-ruby-area/tree/v2.0.0) (2019-08-29)
+[Full Changelog](https://github.com/DEFRA/defra-ruby-area/compare/v1.1.0...v2.0.0)
+
+**Fixed bugs:**
+
+- Update minimum Nokogiri version to 1.10.4 [\#11](https://github.com/DEFRA/defra-ruby-area/pull/11) ([Cruikshanks](https://github.com/Cruikshanks))
+
+**Merged pull requests:**
+
+- Add support for multiple WFS results [\#10](https://github.com/DEFRA/defra-ruby-area/pull/10) ([Cruikshanks](https://github.com/Cruikshanks))
+
 ## [v1.1.0](https://github.com/DEFRA/defra-ruby-area/tree/v1.1.0) (2019-08-11)
 [Full Changelog](https://github.com/DEFRA/defra-ruby-area/compare/v1.0.0...v1.1.0)
 
