@@ -7,7 +7,7 @@
 [![Gem Version](https://badge.fury.io/rb/defra_ruby_area.svg)](https://badge.fury.io/rb/defra_ruby_area)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
-This ruby gem provides a means of looking up an Environment Agency Administrative boundary area from a GIS Web Feature Service (WFS). Provided with a valid [easting and northing](https://en.wikipedia.org/wiki/Easting_and_northing) it will query the WFS and return the various properties for the area if a match is found.
+This ruby gem provides a means of looking up an Environment Agency Administrative boundary area from a GIS Web Feature Service (WFS). Provided with a valid [easting and northing](https://en.wikipedia.org/wiki/Easting_and_northing) it will query the WFS and return various properties for the matching area found.
 
 ## Installation
 
@@ -33,20 +33,20 @@ Each WFS is called through a service that responds with a `DefraRuby::Area::Resp
 
 ```ruby
 response.successful?
-response.area
+response.areas
 response.error
 ```
 
-If the call is successful (the query did not error and a match was found) then
+If the call is successful then
 
 - `successful?()` will be `true`
-- `area` will contain an instance of `DefraRuby::Area::Area`. It contains the area ID, area name, code, short name and long name of the matching administrative boundary
+- `areas` will contain an array of `DefraRuby::Area::Area`. Each contains the area ID, area name, code, short name and long name of the matching administrative boundary
 - `error` will be `nil`
 
 If the call is unsuccessful (the query errored or no match was found) then
 
 - `successful?()` will be `false`
-- `area` will be `nil`
+- `areas` will be `nil`
 - `error` will contain the error
 
 If it's a runtime error, or an error when calling the WFS `error` will contain whatever error was raised.
@@ -62,7 +62,7 @@ easting = 408_602.61
 northing = 257_535.31
 response = DefraRuby::Area::PublicFaceAreaService.run(easting, northing)
 
-puts response.area.long_name if response.successful? # West Midlands
+puts response.areas.first.long_name if response.successful? # West Midlands
 ```
 
 ### Water Management Areas
@@ -74,8 +74,17 @@ easting = 408_602.61
 northing = 257_535.31
 response = DefraRuby::Area::WaterManagementAreaService.run(easting, northing)
 
-puts response.area.long_name if response.successful? # Staffordshire Warwickshire and West Midlands
+puts response.areas.first.long_name if response.successful? # Staffordshire Warwickshire and West Midlands
 ```
+
+### Multiple results
+
+In most cases we expect `response.areas` to contain a single result. It is possible though for a given easting and northing to return multiple administrative boundary areas. Where we see this is when a coordinate is on the boundary of 2 areas. This is why **defra-ruby-area** is setup to return multiple results.
+
+Examples:
+
+- **Public face areas** easting = `398056.684` and northing = `414748` (*Yorkshire* and *Greater Manchester Merseyside and Cheshire*)
+- **Water management areas** easting = `456330` and northing = `267000` (*Lincolnshire and Northamptonshire* and *Staffordshire Warwickshire and West Midlands*)
 
 ## Web Feature Services
 
