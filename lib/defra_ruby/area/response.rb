@@ -8,7 +8,7 @@ module DefraRuby
 
       def initialize(response_exe)
         @success = true
-        @areas = nil
+        @areas = []
         @error = nil
 
         capture_response(response_exe)
@@ -25,7 +25,6 @@ module DefraRuby
       def capture_response(response_exe)
         @areas = response_exe.call[:areas]
       rescue StandardError => e
-        @areas = []
         @error = e
         @success = false
       end
