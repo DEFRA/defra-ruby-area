@@ -18,9 +18,24 @@ module DefraRuby
             response = described_class.run(easting, northing)
             expect(response).to be_a(Response)
             expect(response.successful?).to eq(true)
-            expect(response.area.long_name).to eq("Staffordshire Warwickshire and West Midlands")
+            expect(response.areas[0].long_name).to eq("Staffordshire Warwickshire and West Midlands")
           end
 
+        end
+
+        context "when the coordinates are valid, in England but match more than one area" do
+          before(:each) { VCR.insert_cassette("water_management_area_valid_multiple") }
+          after(:each) { VCR.eject_cassette }
+
+          let(:easting) { 456_330 }
+          let(:northing) { 267_000 }
+
+          it "returns a successful response" do
+            response = described_class.run(easting, northing)
+            expect(response).to be_a(Response)
+            expect(response.successful?).to eq(true)
+            expect(response.areas[0].long_name).to eq("Lincolnshire and Northamptonshire")
+          end
         end
 
         context "when the coordinates are invalid" do
@@ -35,7 +50,7 @@ module DefraRuby
               response = described_class.run(easting, northing)
               expect(response).to be_a(Response)
               expect(response).to_not be_successful
-              expect(response.area).to be_nil
+              expect(response.areas).to be_empty
               expect(response.error).to_not be_nil
             end
           end
@@ -51,7 +66,7 @@ module DefraRuby
               response = described_class.run(easting, northing)
               expect(response).to be_a(Response)
               expect(response).to_not be_successful
-              expect(response.area).to be_nil
+              expect(response.areas).to be_empty
               expect(response.error).to_not be_nil
             end
           end

@@ -7,10 +7,12 @@ module DefraRuby
     RSpec.describe Response do
       subject(:response) { described_class.new(response_exe) }
 
-      let(:valid_type_name) { "ms:Administrative_Boundaries_Water_Management_Areas" }
-      let(:valid_xml) { File.open("spec/fixtures/valid.xml") { |f| Nokogiri::XML(f) } }
+      let(:valid_xml) do
+        document = Nokogiri::XML(File.read("spec/fixtures/valid.xml"))
+        document.xpath("//wfs:FeatureCollection/gml:featureMember").first.first_element_child
+      end
 
-      let(:successful) { -> { { area: Area.new(valid_type_name, valid_xml) } } }
+      let(:successful) { -> { { areas: [Area.new(valid_xml)] } } }
       let(:errored) { -> { raise "Boom!" } }
 
       describe "#successful?" do
@@ -36,7 +38,7 @@ module DefraRuby
           let(:response_exe) { errored }
 
           it "returns nothing" do
-            expect(response.area).to be_nil
+            expect(response.areas).to be_empty
           end
         end
 
@@ -44,8 +46,8 @@ module DefraRuby
           let(:response_exe) { successful }
 
           it "returns an area" do
-            expect(response.area).to be_instance_of(Area)
-            expect(response.area.short_name).to eq("Staffs Warks and West Mids")
+            expect(response.areas[0]).to be_instance_of(Area)
+            expect(response.areas[0].short_name).to eq("Staffs Warks and West Mids")
           end
         end
       end

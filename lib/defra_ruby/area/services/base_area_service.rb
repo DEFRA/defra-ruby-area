@@ -30,11 +30,21 @@ module DefraRuby
             url: url,
             timeout: DefraRuby::Area.configuration.timeout
           )
-          area = Area.new(type_name, Nokogiri::XML(response))
-          raise NoMatchError unless area.matched?
+          areas = extract_areas(Nokogiri::XML(response))
 
-          { area: area }
+          raise NoMatchError unless areas.any?
+
+          { areas: areas }
         end
+      end
+
+      def extract_areas(xml_response)
+        areas = []
+        xml_response.xpath("//wfs:FeatureCollection/gml:featureMember").each do |parent|
+          areas << Area.new(parent.first_element_child)
+        end
+
+        areas
       end
 
       def url

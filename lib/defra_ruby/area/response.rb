@@ -4,11 +4,11 @@ module DefraRuby
   module Area
     class Response
       attr_reader :error
-      attr_reader :area
+      attr_reader :areas
 
       def initialize(response_exe)
         @success = true
-        @area = nil
+        @areas = []
         @error = nil
 
         capture_response(response_exe)
@@ -23,7 +23,7 @@ module DefraRuby
       attr_reader :success
 
       def capture_response(response_exe)
-        @area = response_exe.call[:area]
+        @areas = response_exe.call[:areas]
       rescue StandardError => e
         @error = e
         @success = false

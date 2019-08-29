@@ -16,7 +16,7 @@ RSpec.shared_examples "handle request errors" do
         response = described_class.run(easting, northing)
         expect(response).to be_a(DefraRuby::Area::Response)
         expect(response).to_not be_successful
-        expect(response.area).to be_nil
+        expect(response.areas).to be_empty
         expect(response.error).to_not be_nil
       end
     end
@@ -28,7 +28,7 @@ RSpec.shared_examples "handle request errors" do
         response = described_class.run(easting, northing)
         expect(response).to be_a(DefraRuby::Area::Response)
         expect(response).to_not be_successful
-        expect(response.area).to be_nil
+        expect(response.areas).to be_empty
         expect(response.error).to_not be_nil
       end
     end
