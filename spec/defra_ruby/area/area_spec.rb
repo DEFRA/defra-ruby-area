@@ -12,9 +12,6 @@ module DefraRuby
       end
       let(:invalid_xml) { "foo" }
 
-      let(:no_match_area) { described_class.new(no_match_xml) }
-      let(:matched_area) { described_class.new(valid_xml) }
-
       describe "#initialize" do
         context "when `wfs_xml_element` is missing" do
           it "raises an ArgumentError" do
