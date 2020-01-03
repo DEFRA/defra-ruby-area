@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - rest-client/2.1.0 (darwin18.5.0 x86_64) ruby/2.4.2p198
+      - rest-client/2.1.0 (darwin19.0.0 x86_64) ruby/2.4.2p198
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Host:
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 07 Oct 2019 09:16:37 GMT
+      - Fri, 03 Jan 2020 13:25:21 GMT
       Content-Type:
       - application/xml
       Content-Length:
@@ -45,5 +45,5 @@ http_interactions:
           <ogc:ServiceException><![CDATA[Operator 'Intersects' can't parse geometry.]]></ogc:ServiceException>
         </ogc:ServiceExceptionReport>
     http_version: 
-  recorded_at: Mon, 07 Oct 2019 09:16:38 GMT
+  recorded_at: Fri, 03 Jan 2020 13:25:21 GMT
 recorded_with: VCR 4.0.0
