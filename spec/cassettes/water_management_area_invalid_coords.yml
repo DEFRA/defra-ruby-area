@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Fri, 03 Jan 2020 13:24:59 GMT
+      - Wed, 29 Jan 2020 13:06:12 GMT
       Content-Type:
       - application/xml
       Content-Length:
@@ -48,5 +48,5 @@ http_interactions:
         </gml:boundedBy>
         </wfs:FeatureCollection>
     http_version: 
-  recorded_at: Fri, 03 Jan 2020 13:24:59 GMT
-recorded_with: VCR 4.0.0
+  recorded_at: Wed, 29 Jan 2020 13:06:12 GMT
+recorded_with: VCR 5.0.0
