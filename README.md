@@ -1,8 +1,8 @@
 # Defra Ruby Area
 
 [![Build Status](https://travis-ci.com/DEFRA/defra-ruby-area.svg?branch=master)](https://travis-ci.com/DEFRA/defra-ruby-area)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7aeffed0588d86a5e553/maintainability)](https://codeclimate.com/github/DEFRA/defra-ruby-area/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/7aeffed0588d86a5e553/test_coverage)](https://codeclimate.com/github/DEFRA/defra-ruby-area/test_coverage)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-area&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-area)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-area&metric=coverage)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-area)
 [![security](https://hakiri.io/github/DEFRA/defra-ruby-area/master.svg)](https://hakiri.io/github/DEFRA/defra-ruby-area/master)
 [![Gem Version](https://badge.fury.io/rb/defra_ruby_area.svg)](https://badge.fury.io/rb/defra_ruby_area)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
