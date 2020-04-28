@@ -7,7 +7,7 @@ module DefraRuby
   module Area
     RSpec.describe Area do
       let(:valid_xml) do
-        document = Nokogiri::XML(File.read("spec/fixtures/valid.xml"))
+        document = Nokogiri::XML(File.read("spec/fixtures/water_management_area_valid.xml"))
         document.xpath("//wfs:FeatureCollection/gml:featureMember").first.first_element_child
       end
       let(:invalid_xml) { "foo" }
