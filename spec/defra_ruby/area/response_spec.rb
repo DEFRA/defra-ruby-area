@@ -8,7 +8,7 @@ module DefraRuby
       subject(:response) { described_class.new(response_exe) }
 
       let(:valid_xml) do
-        document = Nokogiri::XML(File.read("spec/fixtures/valid.xml"))
+        document = Nokogiri::XML(File.read("spec/fixtures/water_management_area_valid.xml"))
         document.xpath("//wfs:FeatureCollection/gml:featureMember").first.first_element_child
       end
 

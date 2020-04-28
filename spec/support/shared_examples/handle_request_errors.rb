@@ -2,10 +2,6 @@
 
 RSpec.shared_examples "handle request errors" do
   context "when there is a problem with the Web Feature Service" do
-    before(:each) { VCR.turn_off! }
-    after(:each) { VCR.turn_on! }
-
-    let(:host) { "https://environment.data.gov.uk/" }
     let(:easting) { 408_602.61 }
     let(:northing) { 257_535.31 }
 

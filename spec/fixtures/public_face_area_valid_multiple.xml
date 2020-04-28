@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:ms="https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.0.0/WFS-basic.xsd http://www.opengis.net/gml http://schemas.opengis.net/gml/2.1.2/feature.xsd https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?service=wfs%26version=1.0.0%26request=DescribeFeatureType">
+<gml:boundedBy>
+  <gml:Box srsName="EPSG:27700">
+    <gml:coordinates>0,0,0,0</gml:coordinates>
+  </gml:Box>
+</gml:boundedBy>
+  <gml:featureMember>
+    <ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas fid="Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.19">
+      <ms:OBJECTID>19</ms:OBJECTID>
+      <ms:long_name>Yorkshire</ms:long_name>
+      <ms:short_name>Yorkshire</ms:short_name>
+      <ms:code>YOR</ms:code>
+      <ms:st_area_shape_>14482874597.24499</ms:st_area_shape_>
+      <ms:st_perimeter_shape_>820401.3233851442</ms:st_perimeter_shape_>
+    </ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas>
+  </gml:featureMember>
+  <gml:featureMember>
+    <ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas fid="Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.20">
+      <ms:OBJECTID>20</ms:OBJECTID>
+      <ms:long_name>Greater Manchester Merseyside and Cheshire</ms:long_name>
+      <ms:short_name>Gtr Mancs Mersey and Ches</ms:short_name>
+      <ms:code>GMC</ms:code>
+      <ms:st_area_shape_>4473822349.59001</ms:st_area_shape_>
+      <ms:st_perimeter_shape_>543689.9446941023</ms:st_perimeter_shape_>
+    </ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas>
+  </gml:featureMember>
+</wfs:FeatureCollection>

@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 
+require "webmock/rspec"
 require "spec_helper"
 
 module DefraRuby
   module Area
     RSpec.describe PublicFaceAreaService do
-      describe "#run" do
+      let(:host) { "https://environment.data.gov.uk" }
 
+      describe "#run" do
         context "when the coordinates are valid and in England" do
-          before(:each) { VCR.insert_cassette("public_face_area_valid") }
-          after(:each) { VCR.eject_cassette }
+          before do
+            stub_request(:any, /.*#{host}.*/).to_return(
+              status: 200,
+              body: File.read("./spec/fixtures/public_face_area_valid.xml")
+            )
+          end
 
           let(:easting) { 408_602.61 }
           let(:northing) { 257_535.31 }
@@ -24,8 +30,12 @@ module DefraRuby
         end
 
         context "when the coordinates are valid, in England but match more than one area" do
-          before(:each) { VCR.insert_cassette("public_face_area_valid_multiple") }
-          after(:each) { VCR.eject_cassette }
+          before do
+            stub_request(:any, /.*#{host}.*/).to_return(
+              status: 200,
+              body: File.read("./spec/fixtures/public_face_area_valid_multiple.xml")
+            )
+          end
 
           let(:easting) { 398_056.684 }
           let(:northing) { 414_748 }
@@ -40,8 +50,12 @@ module DefraRuby
 
         context "when the coordinates are invalid" do
           context "because they are blank" do
-            before(:each) { VCR.insert_cassette("public_face_area_invalid_blank") }
-            after(:each) { VCR.eject_cassette }
+            before do
+              stub_request(:any, /.*#{host}.*/).to_return(
+                status: 200,
+                body: File.read("./spec/fixtures/public_face_area_invalid_blank.xml")
+              )
+            end
 
             let(:easting) { nil }
             let(:northing) { nil }
@@ -56,8 +70,12 @@ module DefraRuby
           end
 
           context "because they are not in an area" do
-            before(:each) { VCR.insert_cassette("public_face_area_invalid_coords") }
-            after(:each) { VCR.eject_cassette }
+            before do
+              stub_request(:any, /.*#{host}.*/).to_return(
+                status: 200,
+                body: File.read("./spec/fixtures/public_face_area_invalid_coords.xml")
+              )
+            end
 
             let(:easting) { 301_233.0 }
             let(:northing) { 221_592.0 }
