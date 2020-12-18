@@ -17,7 +17,7 @@ module DefraRuby
       private
 
       def validate_xml
-        raise(ArgumentError, "wfs_xml_element is invalid") unless @xml&.is_a?(Nokogiri::XML::Element)
+        raise(ArgumentError, "wfs_xml_element is invalid") unless @xml.is_a?(Nokogiri::XML::Element)
       end
 
       def parse_xml
