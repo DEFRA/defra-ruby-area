@@ -1,6 +1,6 @@
 # Defra Ruby Area
 
-[![Build Status](https://travis-ci.com/DEFRA/defra-ruby-area.svg?branch=main)](https://travis-ci.com/DEFRA/defra-ruby-area)
+![Build Status](https://github.com/DEFRA/defra-ruby-area/workflows/CI/badge.svg?branch=main)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-area&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-area)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-area&metric=coverage)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-area)
 [![security](https://hakiri.io/github/DEFRA/defra-ruby-area/main.svg)](https://hakiri.io/github/DEFRA/defra-ruby-area/main)
