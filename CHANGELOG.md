@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased](https://github.com/defra/defra-ruby-area/tree/HEAD)
+
+[Full Changelog](https://github.com/defra/defra-ruby-area/compare/v2.0.2...HEAD)
+
+**Merged pull requests:**
+
+- Update nokogiri requirement from ~\> 1.11.1 to \>= 1.11.1, \< 1.13.0 [\#33](https://github.com/DEFRA/defra-ruby-area/pull/33) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v2.0.2](https://github.com/defra/defra-ruby-area/tree/v2.0.2) (2021-09-30)
+
+[Full Changelog](https://github.com/defra/defra-ruby-area/compare/v2.0.1...v2.0.2)
+
 ## [v2.0.1](https://github.com/defra/defra-ruby-area/tree/v2.0.1) (2021-02-12)
 
 [Full Changelog](https://github.com/defra/defra-ruby-area/compare/v2.0.0...v2.0.1)
