@@ -3,7 +3,6 @@
 ![Build Status](https://github.com/DEFRA/defra-ruby-area/workflows/CI/badge.svg?branch=main)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-area&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-area)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_defra-ruby-area&metric=coverage)](https://sonarcloud.io/dashboard?id=DEFRA_defra-ruby-area)
-[![security](https://hakiri.io/github/DEFRA/defra-ruby-area/main.svg)](https://hakiri.io/github/DEFRA/defra-ruby-area/main)
 [![Gem Version](https://badge.fury.io/rb/defra_ruby_area.svg)](https://badge.fury.io/rb/defra_ruby_area)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
@@ -92,25 +91,27 @@ A [Web Feature Service (WFS)](https://en.m.wikipedia.org/wiki/Web_Feature_Servic
 
 Calls are made using url query params. For example behind the scenes `DefraRuby::Area::PublicFaceAreaService` is hitting the following URL
 
-`https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=GetFeature&typeNames=ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas&propertyName=long_name&SRSName=EPSG:27700&Filter=(<Filter><Intersects><PropertyName>SHAPE</PropertyName><gml:Point><gml:coordinates>408602.61,257535.31</gml:coordinates></gml:Point></Intersects></Filter>)`
+`https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=GetFeature&typeNames=ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas&propertyName=long_name&SRSName=EPSG:27700&Filter=(<ogc:Filter><ogc:Intersects><ogc:PropertyName>SHAPE</ogc:PropertyName><gml:Point><gml:coordinates>408602.61,257535.31</gml:coordinates></gml:Point></ogc:Intersects></ogc:Filter>)`
 
 As you can see it uses XML within query, and will return the result in XML.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:ms="https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.0.0/WFS-basic.xsd http://www.opengis.net/gml http://schemas.opengis.net/gml/2.1.2/feature.xsd https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?service=wfs%26version=1.0.0%26request=DescribeFeatureType">
-<gml:boundedBy>
-  <gml:Box srsName="EPSG:27700">
-    <gml:coordinates>0,0,0,0</gml:coordinates>
-  </gml:Box>
-</gml:boundedBy>
+<wfs:FeatureCollection xmlns="http://www.opengis.net/wfs" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:dataset-91d0fb43-209c-477f-91e3-74e756296268="https://environment.data.gov.uk/spatialdata/dataset-91d0fb43-209c-477f-91e3-74e756296268/wfs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://environment.data.gov.uk/spatialdata/dataset-91d0fb43-209c-477f-91e3-74e756296268/wfs https://environment.data.gov.uk/geoservices/datasets/91d0fb43-209c-477f-91e3-74e756296268/wfs?service=WFS&version=1.0.0&request=DescribeFeatureType&typeName=dataset-91d0fb43-209c-477f-91e3-74e756296268%3AAdministrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.0.0/WFS-basic.xsd">
+  <gml:boundedBy>
+    <gml:Box srsName="http://www.opengis.net/gml/srs/epsg.xml#27700">
+      <gml:coordinates xmlns:gml="http://www.opengis.net/gml" decimal="." cs="," ts=" ">57821.0086,-17164.8096 680640.9677,669368.5003</gml:coordinates>
+    </gml:Box>
+  </gml:boundedBy>
   <gml:featureMember>
-    <ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas fid="Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.23">
-      <ms:OBJECTID>23</ms:OBJECTID>
-      <ms:long_name>West Midlands</ms:long_name>
-      <ms:st_area_shape_>14543741870.84492</ms:st_area_shape_>
-      <ms:st_perimeter_shape_>1043376.795941756</ms:st_perimeter_shape_>
-    </ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas>
+    <dataset-91d0fb43-209c-477f-91e3-74e756296268:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas fid="Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.1">
+      <gml:boundedBy>
+        <gml:Box srsName="http://www.opengis.net/gml/srs/epsg.xml#27700">
+          <gml:coordinates xmlns:gml="http://www.opengis.net/gml" decimal="." cs="," ts=" ">280034.5456,45980.9664 421821.4,182101.3994</gml:coordinates>
+        </gml:Box>
+      </gml:boundedBy>
+      <dataset-91d0fb43-209c-477f-91e3-74e756296268:long_name>Wessex</dataset-91d0fb43-209c-477f-91e3-74e756296268:long_name>
+    </dataset-91d0fb43-209c-477f-91e3-74e756296268:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas>
   </gml:featureMember>
 </wfs:FeatureCollection>
 ```
@@ -130,7 +131,7 @@ We don't know if its just a characteristic of WFS's, GIS, or just the EA impleme
 
 A WFS will often go down, sometimes for maintenance (_hopefully_ on a weekend 😀) sometimes just for 'reasons'.
 
-Also though this gem is new, we have worked with these services before and this is approximately the 5th time the format of the query has changed in the space of a 3 years.
+Also though this gem is new, we have worked with these services before and this is approximately the 6th time the format of the query has changed in the space of a 5 years.
 
 For example the period of December 2018 to June 2019 both services were completely down whilst we waited for fixes to be implemented, then confirmation of what query would actually work!
 
