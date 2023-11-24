@@ -127,14 +127,13 @@ module DefraRuby
       # In our case the administrative boundary features contain a number of
       # properties, but we are only interested in
       #
-      # - +area_id+
-      # - +area_name+
-      # - +code+
+      # - +identifier+
       # - +long_name+
+      # - +code+
       # - +short_name+
       #
       def property_name
-        "area_id,area_name,code,long_name,short_name"
+        "identifier,long_name,code,short_name"
       end
 
       # SRS stands for Spatial Reference System. It can also be known as a
@@ -181,14 +180,14 @@ module DefraRuby
         # better.
         filter = <<-XML
           (
-            <Filter>
-              <Intersects>
-                <PropertyName>SHAPE</PropertyName>
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>SHAPE</ogc:PropertyName>
                 <gml:Point>
                   <gml:coordinates>#{easting},#{northing}</gml:coordinates>
                 </gml:Point>
-              </Intersects>
-            </Filter>
+              </ogc:Intersects>
+            </ogc:Filter>
           )
         XML
         filter.strip.squeeze(" ").gsub(/\s+/, "")

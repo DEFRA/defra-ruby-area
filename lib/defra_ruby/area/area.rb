@@ -21,11 +21,11 @@ module DefraRuby
       end
 
       def parse_xml
-        @area_id = @xml.xpath("ms:area_id").text.to_i
-        @area_name = @xml.xpath("ms:area_name").text
-        @code = @xml.xpath("ms:code").text
-        @long_name = @xml.xpath("ms:long_name").text
-        @short_name = @xml.xpath("ms:short_name").text
+        @area_id = @xml.xpath("*[local-name()='identifier']").text.to_i
+        @code = @xml.xpath("*[local-name()='code']").text
+        @long_name = @xml.xpath("*[local-name()='long_name']").text
+        @short_name = @xml.xpath("*[local-name()='short_name']").text
+        @area_name = @long_name
       end
 
     end

@@ -5,28 +5,20 @@ RSpec.shared_examples "handle request errors" do
     let(:easting) { 408_602.61 }
     let(:northing) { 257_535.31 }
 
-    context "and the request times out" do
-      before(:each) { stub_request(:any, /.*#{host}.*/).to_timeout }
+    context "when the request times out" do
+      subject(:response) { described_class.run(easting, northing) }
 
-      it "returns a failed response" do
-        response = described_class.run(easting, northing)
-        expect(response).to be_a(DefraRuby::Area::Response)
-        expect(response).to_not be_successful
-        expect(response.areas).to be_empty
-        expect(response.error).to_not be_nil
-      end
+      before { stub_request(:any, /.*#{host}.*/).to_timeout }
+
+      include_examples "failed response"
     end
 
-    context "and the request returns an error" do
-      before(:each) { stub_request(:any, /.*#{host}.*/).to_raise(SocketError) }
+    context "when the request returns an error" do
+      subject(:response) { described_class.run(easting, northing) }
 
-      it "returns a failed response" do
-        response = described_class.run(easting, northing)
-        expect(response).to be_a(DefraRuby::Area::Response)
-        expect(response).to_not be_successful
-        expect(response.areas).to be_empty
-        expect(response.error).to_not be_nil
-      end
+      before { stub_request(:any, /.*#{host}.*/).to_raise(SocketError) }
+
+      include_examples "failed response"
     end
   end
 end
