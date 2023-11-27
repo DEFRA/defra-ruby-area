@@ -20,13 +20,8 @@ module DefraRuby
           let(:easting) { 408_602.61 }
           let(:northing) { 257_535.31 }
 
-          it "returns a successful response" do
-            response = described_class.run(easting, northing)
-            expect(response).to be_a(Response)
-            expect(response.successful?).to eq(true)
-            expect(response.areas[0].long_name).to eq("Staffordshire Warwickshire and West Midlands")
-          end
-
+          subject(:response) { described_class.run(easting, northing) }
+          include_examples "successful response", "Greater Manchester Merseyside and Cheshire"
         end
 
         context "when the coordinates are valid, in England but match more than one area" do
@@ -40,16 +35,11 @@ module DefraRuby
           let(:easting) { 456_330 }
           let(:northing) { 267_000 }
 
-          it "returns a successful response" do
-            response = described_class.run(easting, northing)
-            expect(response).to be_a(Response)
-            expect(response.successful?).to eq(true)
-            expect(response.areas[0].long_name).to eq("Lincolnshire and Northamptonshire")
-          end
+          include_examples "successful response", "Lincolnshire and Northamptonshire"
         end
 
         context "when the coordinates are invalid" do
-          context "because they are blank" do
+          context "when they are blank" do
             before do
               stub_request(:any, /.*#{host}.*/).to_return(
                 status: 200,
@@ -60,16 +50,10 @@ module DefraRuby
             let(:easting) { nil }
             let(:northing) { nil }
 
-            it "returns a failed response" do
-              response = described_class.run(easting, northing)
-              expect(response).to be_a(Response)
-              expect(response).to_not be_successful
-              expect(response.areas).to be_empty
-              expect(response.error).to_not be_nil
-            end
+            include_examples "failed response"
           end
 
-          context "because they are not in an area" do
+          context "when they are not in an area" do
             before do
               stub_request(:any, /.*#{host}.*/).to_return(
                 status: 200,
@@ -80,13 +64,7 @@ module DefraRuby
             let(:easting) { 301_233.0 }
             let(:northing) { 221_592.0 }
 
-            it "returns a failed response" do
-              response = described_class.run(easting, northing)
-              expect(response).to be_a(Response)
-              expect(response).to_not be_successful
-              expect(response.areas).to be_empty
-              expect(response.error).to_not be_nil
-            end
+            include_examples "failed response"
           end
 
         end

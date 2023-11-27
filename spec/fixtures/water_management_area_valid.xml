@@ -1,20 +1,21 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:ms="https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.0.0/WFS-basic.xsd http://www.opengis.net/gml http://schemas.opengis.net/gml/2.1.2/feature.xsd https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs https://environment.data.gov.uk/spatialdata/administrative-boundaries-water-management-areas/wfs?service=wfs%26version=1.0.0%26request=DescribeFeatureType">
-<gml:boundedBy>
-  <gml:Box srsName="EPSG:27700">
-    <gml:coordinates>0,0,0,0</gml:coordinates>
-  </gml:Box>
-</gml:boundedBy>
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns="http://www.opengis.net/wfs" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:dataset-91d0fb43-209c-477f-91e3-74e756296268="https://environment.data.gov.uk/spatialdata/dataset-91d0fb43-209c-477f-91e3-74e756296268/wfs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://environment.data.gov.uk/spatialdata/dataset-91d0fb43-209c-477f-91e3-74e756296268/wfs https://environment.data.gov.uk/geoservices/datasets/91d0fb43-209c-477f-91e3-74e756296268/wfs?service=WFS&amp;version=1.0.0&amp;request=DescribeFeatureType&amp;typeName=dataset-91d0fb43-209c-477f-91e3-74e756296268%3AAdministrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.0.0/WFS-basic.xsd">
+  <gml:boundedBy>
+    <gml:Box srsName="http://www.opengis.net/gml/srs/epsg.xml#27700">
+      <gml:coordinates xmlns:gml="http://www.opengis.net/gml" decimal="." cs="," ts=" ">57821.0086,-17164.8096 680640.9677,669368.5003</gml:coordinates>
+    </gml:Box>
+  </gml:boundedBy>
   <gml:featureMember>
-    <ms:Administrative_Boundaries_Water_Management_Areas fid="Administrative_Boundaries_Water_Management_Areas.15">
-      <ms:OBJECTID>15</ms:OBJECTID>
-      <ms:long_name>Staffordshire Warwickshire and West Midlands</ms:long_name>
-      <ms:short_name>Staffs Warks and West Mids</ms:short_name>
-      <ms:code>STWKWM</ms:code>
-      <ms:area_id>29</ms:area_id>
-      <ms:area_name>Central</ms:area_name>
-      <ms:st_area_shape_>6460280400.1</ms:st_area_shape_>
-      <ms:st_perimeter_shape_>759189.708848595</ms:st_perimeter_shape_>
-    </ms:Administrative_Boundaries_Water_Management_Areas>
+    <dataset-91d0fb43-209c-477f-91e3-74e756296268:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas fid="Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.20">
+      <gml:boundedBy>
+        <gml:Box srsName="http://www.opengis.net/gml/srs/epsg.xml#27700">
+          <gml:coordinates xmlns:gml="http://www.opengis.net/gml" decimal="." cs="," ts=" ">316169.1,338994.1 406087.2,423531.2</gml:coordinates>
+        </gml:Box>
+      </gml:boundedBy>
+      <dataset-91d0fb43-209c-477f-91e3-74e756296268:identifier>12.00000000</dataset-91d0fb43-209c-477f-91e3-74e756296268:identifier>
+      <dataset-91d0fb43-209c-477f-91e3-74e756296268:long_name>Greater Manchester Merseyside and Cheshire</dataset-91d0fb43-209c-477f-91e3-74e756296268:long_name>
+      <dataset-91d0fb43-209c-477f-91e3-74e756296268:short_name>Gtr Mancs Mersey and Ches</dataset-91d0fb43-209c-477f-91e3-74e756296268:short_name>
+      <dataset-91d0fb43-209c-477f-91e3-74e756296268:code>GMC</dataset-91d0fb43-209c-477f-91e3-74e756296268:code>
+    </dataset-91d0fb43-209c-477f-91e3-74e756296268:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas>
   </gml:featureMember>
 </wfs:FeatureCollection>

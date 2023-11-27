@@ -26,14 +26,26 @@ module DefraRuby
         end
 
         context "when `wfs_xml_element` is valid" do
-          it "populates all an Area's attributes" do
-            subject = described_class.new(valid_xml)
+          subject(:area) { described_class.new(valid_xml) }
 
-            expect(subject.area_id).to eq(29)
-            expect(subject.area_name).to eq("Central")
-            expect(subject.code).to eq("STWKWM")
-            expect(subject.short_name).to eq("Staffs Warks and West Mids")
-            expect(subject.long_name).to eq("Staffordshire Warwickshire and West Midlands")
+          it "populates area_id" do
+            expect(area.area_id).to eq(12)
+          end
+
+          it "populates area_name" do
+            expect(area.area_name).to eq("Greater Manchester Merseyside and Cheshire")
+          end
+
+          it "populates code" do
+            expect(area.code).to eq("GMC")
+          end
+
+          it "populates short_name" do
+            expect(area.short_name).to eq("Gtr Mancs Mersey and Ches")
+          end
+
+          it "populates long_name" do
+            expect(area.long_name).to eq("Greater Manchester Merseyside and Cheshire")
           end
         end
       end

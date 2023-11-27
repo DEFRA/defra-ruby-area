@@ -20,7 +20,7 @@ module DefraRuby
           let(:response_exe) { errored }
 
           it "returns false" do
-            expect(response).to_not be_successful
+            expect(response).not_to be_successful
           end
         end
 
@@ -45,9 +45,12 @@ module DefraRuby
         context "when the response does not throw an error" do
           let(:response_exe) { successful }
 
-          it "returns an area" do
+          it "returns an instance of Area" do
             expect(response.areas[0]).to be_instance_of(Area)
-            expect(response.areas[0].short_name).to eq("Staffs Warks and West Mids")
+          end
+
+          it "returns an area name" do
+            expect(response.areas[0].short_name).to eq("Gtr Mancs Mersey and Ches")
           end
         end
       end
