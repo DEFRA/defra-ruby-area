@@ -13,7 +13,7 @@ module DefraRuby
           before do
             stub_request(:any, /.*#{host}.*/).to_return(
               status: 200,
-              body: File.read("./spec/fixtures/public_face_area_valid.xml")
+              body: File.read("./spec/fixtures/public_face_area_valid.json")
             )
           end
 
@@ -27,7 +27,7 @@ module DefraRuby
           before do
             stub_request(:any, /.*#{host}.*/).to_return(
               status: 200,
-              body: File.read("./spec/fixtures/public_face_area_valid_multiple.xml")
+              body: File.read("./spec/fixtures/public_face_area_valid_multiple.json")
             )
           end
 
@@ -56,7 +56,7 @@ module DefraRuby
             before do
               stub_request(:any, /.*#{host}.*/).to_return(
                 status: 200,
-                body: File.read("./spec/fixtures/public_face_area_invalid_coords.xml")
+                body: File.read("./spec/fixtures/public_face_area_invalid_coords.json")
               )
             end
 

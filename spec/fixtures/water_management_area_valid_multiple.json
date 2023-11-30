@@ -1,0 +1,61 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "id": "Administrative_Boundaries_Water_Management_Areas.11",
+            "geometry": null,
+            "properties": {
+                "identifier": 3,
+                "long_name": "Lincolnshire and Northamptonshire",
+                "short_name": "Lincs and Northants",
+                "code": "LCNNTH"
+            },
+            "bbox": [
+                453340,
+                250990,
+                557492.2,
+                425565.6
+            ]
+        },
+        {
+            "type": "Feature",
+            "id": "Administrative_Boundaries_Water_Management_Areas.13",
+            "geometry": null,
+            "properties": {
+                "identifier": 1,
+                "long_name": "Cambridgeshire and Bedfordshire",
+                "short_name": "Cambs and Bedfordshire",
+                "code": "CAMBED"
+            },
+            "bbox": [
+                450360,
+                213713.2,
+                610740,
+                342630
+            ]
+        },
+        {
+            "type": "Feature",
+            "id": "Administrative_Boundaries_Water_Management_Areas.15",
+            "geometry": null,
+            "properties": {
+                "identifier": 29,
+                "long_name": "Staffordshire Warwickshire and West Midlands",
+                "short_name": "Staffs Warks and West Mids",
+                "code": "STWKWM"
+            },
+            "bbox": [
+                374310,
+                230510,
+                469460,
+                370580
+            ]
+        }
+    ],
+    "totalFeatures": 3,
+    "numberMatched": 3,
+    "numberReturned": 3,
+    "timeStamp": "2023-11-30T00:48:48.999Z",
+    "crs": null
+}

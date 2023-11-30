@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ogc:ServiceExceptionReport xmlns:ogc="http://www.opengis.net/ogc" version="1.2.0">
-  <ogc:ServiceException><![CDATA[The geometry was not recognized.]]></ogc:ServiceException>
-  <ogc:ServiceException><![CDATA[Operator 'Intersects' can't parse geometry.]]></ogc:ServiceException>
-</ogc:ServiceExceptionReport>
+<ows:ExceptionReport xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/ows/1.1 http://schemas.opengis.net/ows/1.1.0/owsAll.xsd">
+  <ows:Exception exceptionCode="NoApplicableCode">
+    <ows:ExceptionText>Could not parse CQL filter list. Encountered &quot;,&quot; at line 1, column 12. Was expecting one of: &quot;-&quot; ... &lt;INTEGER_LITERAL&gt; ... &lt;FLOATING_LITERAL&gt; ... Parsing : bbox(shape,,,,).</ows:ExceptionText>
+  </ows:Exception>
+</ows:ExceptionReport>

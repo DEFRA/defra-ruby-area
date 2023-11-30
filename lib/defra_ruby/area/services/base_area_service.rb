@@ -30,7 +30,8 @@ module DefraRuby
             url: url,
             timeout: DefraRuby::Area.configuration.timeout
           )
-          areas = extract_areas(Nokogiri::XML(response))
+
+          areas = extract_areas(JSON.parse(response))
 
           raise NoMatchError unless areas.any?
 
@@ -38,10 +39,10 @@ module DefraRuby
         end
       end
 
-      def extract_areas(xml_response)
+      def extract_areas(json_response)
         areas = []
-        xml_response.xpath("//wfs:FeatureCollection/gml:featureMember").each do |parent|
-          areas << Area.new(parent.first_element_child)
+        json_response["features"].each do |area_record|
+          areas << Area.new(area_record)
         end
 
         areas
@@ -69,10 +70,11 @@ module DefraRuby
           "SERVICE" => service,
           "VERSION" => version,
           "REQUEST" => request,
-          "typeName" => type_name,
+          "typeNames" => type_name,
           "propertyName" => property_name,
           "SRSName" => srs_name,
-          "Filter" => filter
+          "cql_filter" => filter,
+          "outputformat" => "json"
         }.map { |k, v| "#{k}=#{v}" }.join("&")
       end
 
@@ -98,7 +100,7 @@ module DefraRuby
       # suppport multiple versions hence you need to state the version in the
       # request.
       def version
-        "1.0.0"
+        "2.0.0"
       end
 
       # Used to tell the WFS what kind of request you are making. In the case
@@ -157,40 +159,15 @@ module DefraRuby
       # WFS's use filters in GetFeature requests to return data that only
       # matches a certain criteria.
       #
-      # https://docs.geoserver.org/latest/en/user/filter/function.html
+      # https://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html
       #
-      # There are various formats you can use for doing those, though it will be
-      # dependent on what the WFS supports. In our case we use XML-based Filter
-      # Encoding language because
-      #
-      # * this was how the team that manage the WFS have always provided their
-      #   examples
-      # * we know this format is supported by the WFS's we are interacting with
-      #
-      # The others are CQL and ECQL. https://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html
       #
       # Our filter is looking for the result where our coordinates intersect
-      # with the feature property +SHAPE+, with +SHAPE+ being a
-      # +MultiPolygonPropertyType+.
+      # with the bounding box
       #
-      # http://xml.fmi.fi/namespace/meteorology/conceptual-model/meteorological-objects/2009/04/28/docindex647.html
+      # https://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html#geometric-filters
       def filter
-        # The filter is done in this way purely for readability. It could just
-        # as easily been a one line string statement, but we think this is
-        # better.
-        filter = <<-XML
-          (
-            <ogc:Filter>
-              <ogc:Intersects>
-                <ogc:PropertyName>SHAPE</ogc:PropertyName>
-                <gml:Point>
-                  <gml:coordinates>#{easting},#{northing}</gml:coordinates>
-                </gml:Point>
-              </ogc:Intersects>
-            </ogc:Filter>
-          )
-        XML
-        filter.strip.squeeze(" ").gsub(/\s+/, "")
+        "bbox(shape,#{easting},#{northing},#{easting},#{northing})"
       end
 
       def implemented_in_subclass

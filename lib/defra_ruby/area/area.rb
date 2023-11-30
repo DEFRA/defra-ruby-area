@@ -7,24 +7,30 @@ module DefraRuby
     class Area
       attr_reader :area_id, :area_name, :code, :long_name, :short_name
 
-      def initialize(wfs_xml_element)
-        @xml = wfs_xml_element
+      def initialize(area_record)
+        @area_record = area_record
 
-        validate_xml
-        parse_xml
+        validate_area_record
+        parse_area_record
       end
 
       private
 
-      def validate_xml
-        raise(ArgumentError, "wfs_xml_element is invalid") unless @xml.is_a?(Nokogiri::XML::Element)
+      def validate_area_record
+        unless @area_record && @area_record["properties"]&.keys&.sort == %w[
+          code identifier long_name short_name
+        ]
+          raise(ArgumentError,
+                "area_record is invalid")
+        end
       end
 
-      def parse_xml
-        @area_id = @xml.xpath("*[local-name()='identifier']").text.to_i
-        @code = @xml.xpath("*[local-name()='code']").text
-        @long_name = @xml.xpath("*[local-name()='long_name']").text
-        @short_name = @xml.xpath("*[local-name()='short_name']").text
+      def parse_area_record
+        @area_id = @area_record.dig("properties", "identifier").to_i
+        @code = @area_record.dig("properties", "code")
+        @long_name = @area_record.dig("properties", "long_name")
+        @short_name = @area_record.dig("properties", "short_name")
+        # area_name is no longer part of the response, but we're keeping it for backwards compatibility
         @area_name = @long_name
       end
 
