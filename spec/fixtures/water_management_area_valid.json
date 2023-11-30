@@ -1,0 +1,27 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "id": "Administrative_Boundaries_Water_Management_Areas.2",
+            "geometry": null,
+            "properties": {
+                "identifier": 31,
+                "long_name": "Shropshire Herefordshire Worcestershire and Gloucestershire",
+                "short_name": "Shrops Heref Worcs and Glos",
+                "code": "SHHRWG"
+            },
+            "bbox": [
+                316112.9,
+                189851.7,
+                415200,
+                342950
+            ]
+        }
+    ],
+    "totalFeatures": 1,
+    "numberMatched": 1,
+    "numberReturned": 1,
+    "timeStamp": "2023-11-30T00:45:56.596Z",
+    "crs": null
+}

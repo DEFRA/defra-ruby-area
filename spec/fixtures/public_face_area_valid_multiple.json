@@ -1,0 +1,44 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+      {
+          "type": "Feature",
+          "id": "Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.19",
+          "geometry": null,
+          "properties": {
+              "identifier": 34,
+              "long_name": "Yorkshire",
+              "short_name": "Yorkshire",
+              "code": "YOR"
+          },
+          "bbox": [
+              363191.2,
+              378555.1,
+              542313.7,
+              519226.1
+          ]
+      },
+      {
+          "type": "Feature",
+          "id": "Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.20",
+          "geometry": null,
+          "properties": {
+              "identifier": 12,
+              "long_name": "Greater Manchester Merseyside and Cheshire",
+              "short_name": "Gtr Mancs Mersey and Ches",
+              "code": "GMC"
+          },
+          "bbox": [
+              316169.1,
+              338994.1,
+              406087.2,
+              423531.2
+          ]
+      }
+  ],
+  "totalFeatures": 2,
+  "numberMatched": 2,
+  "numberReturned": 2,
+  "timeStamp": "2023-11-30T00:29:51.481Z",
+  "crs": null
+}

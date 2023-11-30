@@ -7,12 +7,12 @@ module DefraRuby
     RSpec.describe Response do
       subject(:response) { described_class.new(response_exe) }
 
-      let(:valid_xml) do
-        document = Nokogiri::XML(File.read("spec/fixtures/water_management_area_valid.xml"))
-        document.xpath("//wfs:FeatureCollection/gml:featureMember").first.first_element_child
+      let(:valid_area) do
+        json = JSON.parse(File.read("spec/fixtures/water_management_area_valid.json"))
+        json["features"].first
       end
 
-      let(:successful) { -> { { areas: [Area.new(valid_xml)] } } }
+      let(:successful) { -> { { areas: [Area.new(valid_area)] } } }
       let(:errored) { -> { raise "Boom!" } }
 
       describe "#successful?" do
@@ -50,7 +50,7 @@ module DefraRuby
           end
 
           it "returns an area name" do
-            expect(response.areas[0].short_name).to eq("Gtr Mancs Mersey and Ches")
+            expect(response.areas[0].short_name).to eq("Shrops Heref Worcs and Glos")
           end
         end
       end

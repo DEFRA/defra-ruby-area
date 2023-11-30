@@ -13,22 +13,22 @@ module DefraRuby
           before do
             stub_request(:any, /.*#{host}.*/).to_return(
               status: 200,
-              body: File.read("./spec/fixtures/water_management_area_valid.xml")
+              body: File.read("./spec/fixtures/water_management_area_valid.json")
             )
           end
 
-          let(:easting) { 408_602.61 }
-          let(:northing) { 257_535.31 }
+          let(:easting) { 316_169.1 }
+          let(:northing) { 338_994.1 }
 
           subject(:response) { described_class.run(easting, northing) }
-          include_examples "successful response", "Greater Manchester Merseyside and Cheshire"
+          include_examples "successful response", "Shropshire Herefordshire Worcestershire and Gloucestershire"
         end
 
         context "when the coordinates are valid, in England but match more than one area" do
           before do
             stub_request(:any, /.*#{host}.*/).to_return(
               status: 200,
-              body: File.read("./spec/fixtures/water_management_area_valid_multiple.xml")
+              body: File.read("./spec/fixtures/water_management_area_valid_multiple.json")
             )
           end
 
@@ -57,7 +57,7 @@ module DefraRuby
             before do
               stub_request(:any, /.*#{host}.*/).to_return(
                 status: 200,
-                body: File.read("./spec/fixtures/water_management_area_invalid_coords.xml")
+                body: File.read("./spec/fixtures/water_management_area_invalid_coords.json")
               )
             end
 
