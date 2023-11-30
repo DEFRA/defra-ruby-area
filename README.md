@@ -91,29 +91,38 @@ A [Web Feature Service (WFS)](https://en.m.wikipedia.org/wiki/Web_Feature_Servic
 
 Calls are made using url query params. For example behind the scenes `DefraRuby::Area::PublicFaceAreaService` is hitting the following URL
 
-`https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?SERVICE=WFS&VERSION=1.0.0&REQUEST=GetFeature&typeNames=ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas&propertyName=long_name&SRSName=EPSG:27700&Filter=(<ogc:Filter><ogc:Intersects><ogc:PropertyName>SHAPE</ogc:PropertyName><gml:Point><gml:coordinates>408602.61,257535.31</gml:coordinates></gml:Point></ogc:Intersects></ogc:Filter>)`
+`https://environment.data.gov.uk/spatialdata/administrative-boundaries-environment-agency-and-natural-england-public-face-areas/wfs?outputformat=json&SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeNames=ms:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas&propertyName=identifier,long_name,code,short_name&SRSName=EPSG:27700&cql_filter=bbox(shape,408602.61,257535.31,408602.61,257535.31)`
 
-As you can see it uses XML within query, and will return the result in XML.
+As you can see output requested in JSON, and will return the result in JSON format.
 
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<wfs:FeatureCollection xmlns="http://www.opengis.net/wfs" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:dataset-91d0fb43-209c-477f-91e3-74e756296268="https://environment.data.gov.uk/spatialdata/dataset-91d0fb43-209c-477f-91e3-74e756296268/wfs" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://environment.data.gov.uk/spatialdata/dataset-91d0fb43-209c-477f-91e3-74e756296268/wfs https://environment.data.gov.uk/geoservices/datasets/91d0fb43-209c-477f-91e3-74e756296268/wfs?service=WFS&version=1.0.0&request=DescribeFeatureType&typeName=dataset-91d0fb43-209c-477f-91e3-74e756296268%3AAdministrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.0.0/WFS-basic.xsd">
-  <gml:boundedBy>
-    <gml:Box srsName="http://www.opengis.net/gml/srs/epsg.xml#27700">
-      <gml:coordinates xmlns:gml="http://www.opengis.net/gml" decimal="." cs="," ts=" ">57821.0086,-17164.8096 680640.9677,669368.5003</gml:coordinates>
-    </gml:Box>
-  </gml:boundedBy>
-  <gml:featureMember>
-    <dataset-91d0fb43-209c-477f-91e3-74e756296268:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas fid="Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.1">
-      <gml:boundedBy>
-        <gml:Box srsName="http://www.opengis.net/gml/srs/epsg.xml#27700">
-          <gml:coordinates xmlns:gml="http://www.opengis.net/gml" decimal="." cs="," ts=" ">280034.5456,45980.9664 421821.4,182101.3994</gml:coordinates>
-        </gml:Box>
-      </gml:boundedBy>
-      <dataset-91d0fb43-209c-477f-91e3-74e756296268:long_name>Wessex</dataset-91d0fb43-209c-477f-91e3-74e756296268:long_name>
-    </dataset-91d0fb43-209c-477f-91e3-74e756296268:Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas>
-  </gml:featureMember>
-</wfs:FeatureCollection>
+```json
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "id": "Administrative_Boundaries_Environment_Agency_and_Natural_England_Public_Face_Areas.23",
+            "geometry": null,
+            "properties": {
+                "identifier": 51,
+                "long_name": "West Midlands",
+                "short_name": "West Midlands",
+                "code": "WMD"
+            },
+            "bbox": [
+                316114.5,
+                187934.4,
+                456472.5,
+                369909.5
+            ]
+        }
+    ],
+    "totalFeatures": 1,
+    "numberMatched": 1,
+    "numberReturned": 1,
+    "timeStamp": "2023-11-30T11:06:46.945Z",
+    "crs": null
+}
 ```
 
 ### Further reading
