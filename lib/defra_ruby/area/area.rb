@@ -26,10 +26,10 @@ module DefraRuby
       end
 
       def parse_area_record
-        @area_id = @area_record["properties"]["identifier"].to_i
-        @code = @area_record["properties"]["code"]
-        @long_name = @area_record["properties"]["long_name"]
-        @short_name = @area_record["properties"]["short_name"]
+        @area_id = @area_record.dig("properties", "identifier").to_i
+        @code = @area_record.dig("properties", "code")
+        @long_name = @area_record.dig("properties", "long_name")
+        @short_name = @area_record.dig("properties", "short_name")
         # area_name is no longer part of the response, but we're keeping it for backwards compatibility
         @area_name = @long_name
       end
